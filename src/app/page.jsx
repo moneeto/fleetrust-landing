@@ -43,10 +43,11 @@ const shots = [
   },
   {
     title: "New booking",
-    text: "A few short steps: type, service, passengers, aircraft and pilot, date and time. When you confirm, the passenger receives the boarding pass by email.",
+    text: "Pick the flight, the aircraft and the pilot, then the date and time. Add each passenger and confirm. The boarding pass goes out by email.",
     imgs: [
-      ["5.png", "New booking step to enter passengers"],
-      ["6.png", "Date and time step with the reservation confirmed message"],
+      ["8.png", "New booking: flight, aircraft, pilot, date and time"],
+      ["9.png", "Passenger details for a new booking"],
+      ["6.png", "Reservation confirmed and boarding pass sent"],
     ],
   },
   {
@@ -140,22 +141,17 @@ export default function Home() {
       </header>
 
       <main>
-        <section id="top" className="py-20 md:py-28">
+        <section id="top" className="py-4 md:py-4">
           <div className={wrap}>
             {/* <p className={label}>Air tour operations software</p> */}
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
-              Run every flight, pilot and booking from one place.
+            <h1 className="mt-4 max-w-6xl text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
+              {/* FOR FREE - #1 Best aviation management app */}
+              #1 Best Value Aviation App on the Market
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-              Fleetrust keeps your air tour operation organized, so you spend less time on spreadsheets and more
-              time flying.
+              Fleetrust keeps your operations organized, See every flight, pilot and booking from one place.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#download" className={`${btn} bg-primary text-white hover:bg-[#0b5ed7]`}>Get Fleetrust</a>
-              <a href="#platform" className={`${btn} border border-ink hover:bg-paper`}>See the platform</a>
-            </div>
-
-            <Shot src="1.png" alt="Fleetrust booking calendar in month view" className="mt-16" priority />
+            <Shot src="1.png" alt="Fleetrust booking calendar in month view" className="mt-4" priority />
           </div>
         </section>
 
@@ -198,8 +194,13 @@ export default function Home() {
                 <p className="max-w-xl text-muted">{text}</p>
               </div>
               <div className={`mt-6 grid gap-4 ${imgs.length > 1 ? "lg:grid-cols-2" : ""}`}>
-                {imgs.map(([src, alt]) => (
-                  <Shot key={src} src={src} alt={alt} />
+                {imgs.map(([src, alt], i) => (
+                  <Shot
+                    key={src}
+                    src={src}
+                    alt={alt}
+                    className={imgs.length % 2 && i === imgs.length - 1 ? "lg:col-span-2" : ""}
+                  />
                 ))}
               </div>
             </div>
